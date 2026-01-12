@@ -14,7 +14,7 @@ class WarrantyClaimBatch(Document):
             "Dealer Replacement",
         )
 
-        for idx, row in enumerate(self.items, start=1):
+        for idx, row in enumerate(self.item_claim, start=1):
             if not row.project:
                 continue
 

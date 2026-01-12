@@ -138,7 +138,12 @@ app_license = "mit"
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
 # 	}
-# }
+doc_events = {
+    "Purchase Receipt": {
+        "on_submit": "battery_claim.battery_claim.doctype.warranty_claim_batch.warranty_claim_batch.update_warranty_claim_batch_from_pr",
+        "on_cancel": "battery_claim.battery_claim.doctype.warranty_claim_batch.warranty_claim_batch.rollback_warranty_claim_batch_from_pr",
+    }
+}
 
 # Scheduled Tasks
 # ---------------

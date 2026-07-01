@@ -1,13 +1,15 @@
 {
  "actions": [],
+ "allow_bulk_edit": 1,
  "allow_rename": 1,
  "creation": "2026-01-08 12:49:07.008212",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "battery_warranty_claim",
   "defective_item_code",
-  "project",
+  "defective_serial_no",
   "replacement_point",
   "replacement_issued",
   "delivery_note",
@@ -16,23 +18,22 @@
   "purchase_receipt",
   "supplier_item_code",
   "supplier_serial_no",
-  "remarks"
+  "remarks",
+  "project"
  ],
  "fields": [
   {
    "fieldname": "project",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Defective Serial No",
-   "options": "Project",
-   "reqd": 1
+   "label": "Project",
+   "options": "Project"
   },
   {
    "fieldname": "defective_item_code",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Defective Item Code",
-   "options": "Item"
+   "read_only": 1
   },
   {
    "default": "0",
@@ -44,24 +45,21 @@
   },
   {
    "fieldname": "issued_item_code",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Issued Item Code",
-   "options": "Item",
    "read_only": 1
   },
   {
    "fieldname": "issued_serial_no",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Issued Serial No",
-   "options": "Serial No",
-   "read_only_depends_on": "eval:doc.replacement_point != \"Dealer Replacement\""
+   "read_only": 1
   },
   {
    "fieldname": "delivery_note",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "Delivery Note",
    "options": "Delivery Note",
    "read_only": 1
@@ -80,28 +78,43 @@
   },
   {
    "fieldname": "supplier_item_code",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Supplier Replacement Item",
-   "options": "Item",
    "read_only": 1
   },
   {
    "fieldname": "supplier_serial_no",
    "fieldtype": "Data",
-   "label": "Supplier Serial No."
+   "label": "Supplier Serial No.",
+   "read_only": 1
   },
   {
    "fieldname": "replacement_point",
    "fieldtype": "Data",
    "label": "Replacement Point",
    "read_only": 1
+  },
+  {
+   "fieldname": "battery_warranty_claim",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "BWC ID",
+   "options": "Battery Warranty Claim"
+  },
+  {
+   "fieldname": "defective_serial_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Defective Serial No",
+   "read_only": 1,
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-01-11 20:06:24.771888",
+ "modified": "2026-06-27 17:40:37.198858",
  "modified_by": "Administrator",
  "module": "Battery Claim",
  "name": "Warranty Claim Batch Item",

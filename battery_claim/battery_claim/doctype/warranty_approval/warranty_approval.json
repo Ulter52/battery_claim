@@ -1,0 +1,149 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-06-29 11:59:33.442140",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "reference_section",
+  "naming_series",
+  "supplier",
+  "column_break_ewrz",
+  "battery_warranty_claim",
+  "approval_date",
+  "amended_from",
+  "reason_of_cancellation",
+  "approval_section",
+  "approval_id",
+  "approved_item_code",
+  "approval_type",
+  "column_break_1",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Warranty Approval",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "reference_section",
+   "fieldtype": "Section Break",
+   "label": "Reference"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "battery_warranty_claim",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Battery Warranty Claim",
+   "options": "Battery Warranty Claim",
+   "reqd": 1
+  },
+  {
+   "fieldname": "approval_section",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "approved_item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Approved Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "default": "Today",
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "column_break_ewrz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reason_of_cancellation",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "Reason of Cancellation"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "WA-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "approval_id",
+   "fieldtype": "Data",
+   "label": "Approval ID",
+   "reqd": 1
+  },
+  {
+   "default": "Replacement",
+   "fieldname": "approval_type",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Approval Type",
+   "options": "Replacement\nCredit Note\nRepair"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier/Manufacturer",
+   "options": "Supplier",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-30 15:10:48.771096",
+ "modified_by": "Administrator",
+ "module": "Battery Claim",
+ "name": "Warranty Approval",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

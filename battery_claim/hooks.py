@@ -87,6 +87,8 @@ app_license = "mit"
 
 # before_install = "battery_claim.install.before_install"
 # after_install = "battery_claim.install.after_install"
+after_install = "battery_claim.install.after_install"
+after_migrate = "battery_claim.install.after_install"
 
 # Uninstallation
 # ------------
@@ -139,12 +141,23 @@ app_license = "mit"
 # 		"on_trash": "method"
 # 	}
 doc_events = {
-    "Purchase Receipt": {
-        "on_submit": "battery_claim.battery_claim.doctype.warranty_claim_batch.warranty_claim_batch.update_warranty_claim_batch_from_pr",
-        "on_cancel": "battery_claim.battery_claim.doctype.warranty_claim_batch.warranty_claim_batch.rollback_warranty_claim_batch_from_pr",
-    }
-}
 
+    "Delivery Note": {
+        "on_submit": "battery_claim.battery_claim.events.delivery_note.on_submit",
+        "on_cancel": "battery_claim.battery_claim.events.delivery_note.on_cancel",
+    },
+
+    "Purchase Receipt": {
+        "on_submit": "battery_claim.battery_claim.events.purchase_receipt.on_submit",
+        "on_cancel": "battery_claim.battery_claim.events.purchase_receipt.on_cancel",
+    },
+
+    "Warranty Claim Batch": {
+        "on_submit": "battery_claim.battery_claim.doctype.warranty_claim_batch.warranty_claim_batch.on_submit",
+        "on_cancel": "battery_claim.battery_claim.doctype.warranty_claim_batch.warranty_claim_batch.on_cancel",
+    },
+
+}
 # Scheduled Tasks
 # ---------------
 

@@ -1,0 +1,489 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "autoname": "naming_series:BWC-.YYYY.-.#####",
+ "creation": "2026-06-21 21:10:32.639133",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "claim_details_tab",
+  "naming_series",
+  "claim_date",
+  "column_break_vkbr",
+  "amended_from",
+  "claim_status",
+  "claim_type",
+  "dealer_has_replaced",
+  "section_break_fitu",
+  "existing_serial_no",
+  "claim_info_sb",
+  "defective_item_code",
+  "defective_serial_no",
+  "serial_exists_in_system",
+  "complaint_details",
+  "column_break_kxrl",
+  "approved_item_code",
+  "warranty_approval",
+  "serial_no_reference",
+  "inward_voucher_type",
+  "inward_voucher_no",
+  "column_break_koyw",
+  "outward_voucher_type",
+  "outward_voucher_no",
+  "warranty_expiry_date",
+  "section_break_dgda",
+  "remarks",
+  "project",
+  "customer_tab",
+  "customer_sb",
+  "customer_type",
+  "customer",
+  "column_break_dxvo",
+  "customer_name",
+  "customer_mobile_no",
+  "dealer_reference_no",
+  "replacement_details_section",
+  "replacement_method_column",
+  "fulfillment_method",
+  "fulfillment_warehouse",
+  "column_break_fwbm",
+  "installed_item_code",
+  "installed_serial_no",
+  "installed_date",
+  "fulfillment_tab",
+  "supplier_details_section",
+  "supplier",
+  "column_break_cddy",
+  "warranty_claim_batch",
+  "delivery_note_sb",
+  "replacement_details_column",
+  "delivery_note",
+  "issued_item_code",
+  "issued_serial_no",
+  "column_break_fpcx",
+  "purchase_receipt",
+  "received_item_code",
+  "received_serial_no",
+  "credit_note_sb",
+  "credit_date",
+  "credit_note_no",
+  "credit_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Battery Warranty Claim",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "claim_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Claim Details"
+  },
+  {
+   "default": "BWC-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "BWC-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "claim_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Claim Date",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Approval Pending",
+   "fieldname": "claim_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Claim Status",
+   "options": "Approval Pending\nApproved\nReplaced\nCredit Note Issued\nClosed\nCancelled\nDispatched\nStock Received",
+   "read_only": 1
+  },
+  {
+   "fieldname": "claim_info_sb",
+   "fieldtype": "Section Break",
+   "label": "Claim Information"
+  },
+  {
+   "fieldname": "claim_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Claim Type",
+   "options": "Store Replacement\nDealer Replacement",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_type",
+   "fieldtype": "Select",
+   "label": "Customer Type",
+   "options": "Individual\nDealer"
+  },
+  {
+   "fieldname": "customer_sb",
+   "fieldtype": "Section Break",
+   "label": "Customer Information"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "dealer_reference_no",
+   "fieldtype": "Data",
+   "label": "Customer Reference No"
+  },
+  {
+   "fieldname": "defective_item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Defective Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "defective_serial_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Defective Serial No",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "serial_exists_in_system",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Serial Exists In System",
+   "read_only": 1
+  },
+  {
+   "fieldname": "complaint_details",
+   "fieldtype": "Small Text",
+   "label": "Complaint Details"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "depends_on": "eval:doc.claim_type=='Dealer Replacement'",
+   "fieldname": "dealer_has_replaced",
+   "fieldtype": "Check",
+   "label": "Dealer Has Replaced"
+  },
+  {
+   "fieldname": "fulfillment_tab",
+   "fieldtype": "Tab Break",
+   "label": "Reference"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "fulfillment_method",
+   "fieldtype": "Select",
+   "label": "Fulfillment Method",
+   "options": "Store Stock\nDealer Stock\nCredit Note"
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.fulfillment_method=='Store Stock'",
+   "fieldname": "fulfillment_warehouse",
+   "fieldtype": "Link",
+   "label": "Fulfillment Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "delivery_note",
+   "fieldtype": "Data",
+   "label": "Delivery Note",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "credit_note_no",
+   "fieldtype": "Data",
+   "label": "Credit Note No"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "credit_amount",
+   "fieldtype": "Currency",
+   "label": "Credit Amount"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "credit_date",
+   "fieldtype": "Date",
+   "label": "Credit Date"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "purchase_receipt",
+   "fieldtype": "Data",
+   "label": "Purchase Receipt",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "column_break_vkbr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_kxrl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_dgda",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "customer_tab",
+   "fieldtype": "Tab Break",
+   "label": "Customer Details"
+  },
+  {
+   "fieldname": "column_break_fwbm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dxvo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "replacement_details_section",
+   "fieldtype": "Section Break",
+   "label": "Replacement Details"
+  },
+  {
+   "fieldname": "delivery_note_sb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "credit_note_sb",
+   "fieldtype": "Section Break",
+   "label": "Credit Note"
+  },
+  {
+   "fieldname": "supplier_details_section",
+   "fieldtype": "Section Break",
+   "label": "Supplier Details"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "warranty_claim_batch",
+   "fieldtype": "Data",
+   "label": "Warranty Claim Batch",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "installed_item_code",
+   "fieldtype": "Link",
+   "label": "Replacement Item Code",
+   "options": "Item"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "installed_serial_no",
+   "fieldtype": "Data",
+   "label": "Replacement Serial No"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "installed_date",
+   "fieldtype": "Date",
+   "label": "Replacement Date"
+  },
+  {
+   "fieldname": "warranty_expiry_date",
+   "fieldtype": "Date",
+   "label": "Warranty Expiry Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "existing_serial_no",
+   "fieldtype": "Link",
+   "label": "Search Serial No.",
+   "options": "Serial No"
+  },
+  {
+   "fieldname": "customer_mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No"
+  },
+  {
+   "fieldname": "approved_item_code",
+   "fieldtype": "Data",
+   "label": "Approved Item Code",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "issued_item_code",
+   "fieldtype": "Data",
+   "label": "Issued Item Code",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "issued_serial_no",
+   "fieldtype": "Link",
+   "label": "Issued Serial No",
+   "options": "Serial No",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "received_item_code",
+   "fieldtype": "Link",
+   "label": "Received Item Code",
+   "options": "Item"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "received_serial_no",
+   "fieldtype": "Link",
+   "label": "Received Serial no.",
+   "options": "Serial No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_fitu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "serial_no_reference",
+   "fieldtype": "Section Break",
+   "label": "Serial No Reference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "inward_voucher_type",
+   "fieldtype": "Link",
+   "label": "Inward Voucher Type",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "inward_voucher_no",
+   "fieldtype": "Dynamic Link",
+   "label": "Inward Voucher No.",
+   "options": "inward_voucher_type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_koyw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "outward_voucher_type",
+   "fieldtype": "Link",
+   "label": "Outward Voucher Type",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "outward_voucher_no",
+   "fieldtype": "Dynamic Link",
+   "label": "Outward Voucher No.",
+   "options": "outward_voucher_type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_fpcx",
+   "fieldtype": "Column Break",
+   "label": "Procurement Details"
+  },
+  {
+   "fieldname": "column_break_cddy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier",
+   "read_only": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Legacy Project",
+   "options": "Project",
+   "read_only": 1
+  },
+  {
+   "fieldname": "warranty_approval",
+   "fieldtype": "Data",
+   "label": "Warranty Approval Doc",
+   "read_only": 1
+  },
+  {
+   "fieldname": "replacement_method_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "replacement_details_column",
+   "fieldtype": "Column Break",
+   "label": "Replacement Details"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-30 19:56:01.253746",
+ "modified_by": "Administrator",
+ "module": "Battery Claim",
+ "name": "Battery Warranty Claim",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "defective_serial_no",
+ "track_changes": 1
+}

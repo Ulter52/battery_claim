@@ -8,80 +8,98 @@
 // });
 
 
-frappe.ui.form.on('Warranty Claim Batch Item', {
-    project: function (frm, cdt, cdn) {
-        let row = locals[cdt][cdn];
+const SNAPSHOT_FIELDS = [
+    "defective_item_code",
+    "defective_serial_no",
+    "replacement_issued",
+    "replacement_point",
+    "delivery_note",
+    "issued_item_code",
+    "issued_serial_no",
+    "remarks"
+];
 
-        // Reset
-        frappe.model.set_value(cdt, cdn, 'replacement_issued', 0);
-        frappe.model.set_value(cdt, cdn, 'issued_item_code', '');
-        frappe.model.set_value(cdt, cdn, 'issued_serial_no', '');
-        frappe.model.set_value(cdt, cdn, 'delivery_note', '');
+/**
+ * Reset all snapshot fields in the child row.
+ */
+function reset_claim_snapshot(cdt, cdn) {
 
-        if (!row.project) return;
+    SNAPSHOT_FIELDS.forEach(field => {
+        frappe.model.set_value(cdt, cdn, field, null);
+    });
 
-        frappe.call({
-    method: 'battery_claim.battery_claim.doctype.warranty_claim_batch.warranty_claim_batch.get_delivery_note',
-    args: {
-        project: row.project
-    },
-    callback: function (r) {
-        if (!r.message) return;
+}
 
-        Object.keys(r.message).forEach(key => {
-            frappe.model.set_value(cdt, cdn, key, r.message[key]);
-        });
-    }
-});
-    }
-});
-frappe.ui.form.on('Warranty Claim Batch Item', {
-    project: function (frm, cdt, cdn) {
-        const row = locals[cdt][cdn];
-        if (!row.project) return;
+/**
+ * Populate snapshot values returned by the server.
+ */
+function populate_claim_snapshot(cdt, cdn, snapshot) {
 
-        frappe.db.get_value(
-            'Project',
-            row.project,
-            'project_type',
-            function (r) {
-                frappe.model.set_value(
-                    cdt,
-                    cdn,
-                    'replacement_point',
-                    r.project_type || ''
-                );
-            }
+    Object.entries(snapshot).forEach(([field, value]) => {
+
+        frappe.model.set_value(
+            cdt,
+            cdn,
+            field,
+            value
         );
-    }
-});
 
-frappe.ui.form.on('Warranty Claim Batch Item', {
-    issued_serial_no: function (frm, cdt, cdn) {
+    });
+
+}
+
+/**
+ * Fetch latest Battery Warranty Claim snapshot.
+ */
+function load_claim_snapshot(claim_name, callback) {
+
+    frappe.call({
+
+        method:
+            "battery_claim.battery_claim.doctype.warranty_claim_batch.warranty_claim_batch.get_claim_snapshot",
+
+        args: {
+            claim_name: claim_name
+        },
+
+        freeze: true,
+
+        callback: callback
+
+    });
+
+}
+
+
+frappe.ui.form.on("Warranty Claim Batch Item", {
+
+    battery_warranty_claim(frm, cdt, cdn) {
+
         const row = locals[cdt][cdn];
-        if (!row.issued_serial_no) return;
 
-        frappe.db.get_value(
-            'Serial No',
-            row.issued_serial_no,
-            'item_code',
+        reset_claim_snapshot(cdt, cdn);
+
+        if (!row.battery_warranty_claim) {
+            return;
+        }
+
+        load_claim_snapshot(
+            row.battery_warranty_claim,
             function (r) {
-                if (!r || !r.item_code) {
-                    frappe.msgprint({
-                        title: __('Invalid Serial No'),
-                        message: __('No Item found for Serial No {0}', [row.issued_serial_no]),
-                        indicator: 'red'
-                    });
-                    frappe.model.set_value(cdt, cdn, 'issued_item_code', null);
+
+                if (!r.message) {
                     return;
                 }
 
-                // Set fetched item
-                frappe.model.set_value(cdt, cdn, 'issued_item_code', r.item_code);
+                populate_claim_snapshot(
+                    cdt,
+                    cdn,
+                    r.message
+                );
 
-                // Mark replacement issued
-                frappe.model.set_value(cdt, cdn, 'replacement_issued', 1);
             }
         );
+
     }
+
 });

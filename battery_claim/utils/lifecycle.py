@@ -38,6 +38,9 @@ def get_available_actions(claim):
         "purchase_receipt": claim.purchase_receipt,
     }
 
+    if claim.docstatus != 1:
+        return actions
+
     # -----------------------------------------
     # Warranty Approval
     # -----------------------------------------

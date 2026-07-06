@@ -228,12 +228,29 @@ def on_cancel(self):
         if not row.battery_warranty_claim:
             continue
 
+        claim = frappe.get_doc(
+            "Battery Warranty Claim",
+            row.battery_warranty_claim
+        )
+
+        if claim.purchase_receipt:
+            claim_status = "Stock Received"
+
+        elif claim.delivery_note:
+            claim_status = "Replaced"
+
+        elif claim.warranty_approval:
+            claim_status = "Approved"
+
+        else:
+            claim_status = "Approval Pending"
+
         frappe.db.set_value(
             "Battery Warranty Claim",
-            row.battery_warranty_claim,
+            claim.name,
             {
                 "warranty_claim_batch": None,
-                "claim_status": "Replaced",
+                "claim_status": claim_status,
             },
             update_modified=False
         )

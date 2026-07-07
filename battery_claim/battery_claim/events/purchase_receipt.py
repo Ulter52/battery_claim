@@ -34,6 +34,11 @@ def update_claim_from_pr(pr_name):
         pr.reload()
 
         claim_name = pr.battery_warranty_claim
+        
+        # Not a Battery Claim Purchase Receipt ignore it.
+        if not claim_name:
+            return
+            
         claim = frappe.get_doc("Battery Warranty Claim", claim_name)
 
         if not claim_name:

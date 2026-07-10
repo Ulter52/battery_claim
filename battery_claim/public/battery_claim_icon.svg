@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 128 128"
+     width="128"
+     height="128">
+
+  <!-- Background -->
+  <rect x="6" y="6" width="116" height="116" rx="24" fill="#2563EB"/>
+
+  <!-- Battery -->
+  <rect x="28" y="36" width="72" height="50" rx="8" fill="#FFFFFF"/>
+
+  <!-- Battery Terminals -->
+  <rect x="42" y="28" width="12" height="10" rx="2" fill="#FFFFFF"/>
+  <rect x="74" y="28" width="12" height="10" rx="2" fill="#FFFFFF"/>
+
+  <!-- Shield -->
+  <path
+      d="M64 46
+         L78 52
+         C78 66 74 74 64 82
+         C54 74 50 66 50 52
+         Z"
+      fill="#2563EB"/>
+
+  <!-- Check -->
+  <path
+      d="M57 63
+         L62 68
+         L72 57"
+      fill="none"
+      stroke="#FFFFFF"
+      stroke-width="5"
+      stroke-linecap="round"
+      stroke-linejoin="round"/>
+
+</svg>

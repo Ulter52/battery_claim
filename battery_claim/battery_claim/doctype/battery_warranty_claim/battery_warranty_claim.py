@@ -185,12 +185,40 @@ class BatteryWarrantyClaim(Document):
                     """
                 ))
 
-            # ---------------------------------------------------------
-            # Rejected / Cancelled
-            # ---------------------------------------------------------
+    # ---------------------------------------------------------
+    # Rejected / Cancelled
+    # ---------------------------------------------------------
 
-            # Reopen Allowed
-            # Do nothing
+    def before_cancel(self):
+
+        linked_docs = []
+
+        if self.warranty_approval:
+            linked_docs.append(f"Warranty Approval: {self.warranty_approval}")
+
+        if self.delivery_note:
+            linked_docs.append(f"Delivery Note: {self.delivery_note}")
+
+        if self.warranty_claim_batch:
+            linked_docs.append(f"Warranty Claim Batch: {self.warranty_claim_batch}")
+
+        if self.purchase_receipt:
+            linked_docs.append(f"Purchase Receipt: {self.purchase_receipt}")
+
+        if self.credit_note_no:
+            linked_docs.append(f"Credit Note: {self.credit_note_no}")
+
+        if linked_docs:
+            frappe.throw(_("Please cancel the following linked documents first:<br><br>{0}").format("<br>".join(linked_docs))
+            )
+
+                    
+    def on_cancel(self):
+        self.db_set(
+            "claim_status",
+            "Cancelled",
+            update_modified=False,
+        )
 
 @frappe.whitelist()
 def get_serial_details(serial_no):

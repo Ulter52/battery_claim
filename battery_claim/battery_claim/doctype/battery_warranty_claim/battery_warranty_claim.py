@@ -22,6 +22,11 @@ class BatteryWarrantyClaim(Document):
     def validate(self):
         self.validate_serial_eligibility()
 
+    def before_insert(self):
+
+        if self.amended_from:
+            self.claim_status = "Approval Pending" 
+
     # -----------------------------------------------------------------
     # Determine business outcome of a previous warranty claim
     # -----------------------------------------------------------------

@@ -1,0 +1,13 @@
+{
+ "creation": "2026-08-24 11:30:59.492788",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart Source",
+ "idx": 0,
+ "modified": "2026-08-24 11:30:59.492788",
+ "modified_by": "Administrator",
+ "module": "Battery Claim",
+ "name": "Replacement Process TAT",
+ "owner": "Administrator",
+ "source_name": "Replacement Process TAT",
+ "timeseries": 1
+}

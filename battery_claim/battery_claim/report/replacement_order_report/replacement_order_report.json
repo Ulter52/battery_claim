@@ -1,0 +1,31 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-08-16 13:43:30.224068",
+ "disable_prepared_report_automation": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "doctype_to_sync": [],
+ "filters": [],
+ "generate_csv": 0,
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2026-08-16 13:43:30.224068",
+ "modified_by": "Administrator",
+ "module": "Battery Claim",
+ "name": "Replacement Order Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Battery Warranty Claim",
+ "report_name": "Replacement Order Report",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "snapshot_report": 0,
+ "timeout": 0
+}

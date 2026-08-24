@@ -1,0 +1,13 @@
+{
+ "creation": "2026-08-23 14:33:10.430895",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart Source",
+ "idx": 0,
+ "modified": "2026-08-23 14:33:10.430895",
+ "modified_by": "Administrator",
+ "module": "Battery Claim",
+ "name": "Replacement by Status",
+ "owner": "Administrator",
+ "source_name": "Replacement by Status",
+ "timeseries": 0
+}

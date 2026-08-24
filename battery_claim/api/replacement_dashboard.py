@@ -260,3 +260,148 @@ def get_replacement_summary(filters=None):
 @frappe.whitelist()
 def get_number_card_data():
     return get_replacement_summary()
+
+
+@frappe.whitelist()
+def get_replacement_trend(from_date=None, to_date=None):
+    """
+    Return monthly Replacement Order counts.
+
+    Uses submitted Battery Warranty Claim records
+    and groups them by claim month.
+    """
+
+    filters = {
+        "docstatus": 1
+    }
+
+    if from_date and to_date:
+
+        filters["claim_date"] = [
+            "between",
+            [from_date, to_date]
+        ]
+
+    elif from_date:
+
+        filters["claim_date"] = [
+            ">=",
+            from_date
+        ]
+
+    elif to_date:
+
+        filters["claim_date"] = [
+            "<=",
+            to_date
+        ]
+
+    orders = frappe.get_all(
+        "Battery Warranty Claim",
+        filters=filters,
+        fields=[
+            "claim_date"
+        ],
+        order_by="claim_date asc",
+    )
+
+    monthly_counts = {}
+
+    for order in orders:
+
+        if not order.claim_date:
+            continue
+
+        month_key = getdate(
+            order.claim_date
+        ).strftime("%Y-%m")
+
+        monthly_counts[month_key] = (
+            monthly_counts.get(month_key, 0) + 1
+        )
+
+    month_keys = sorted(
+        monthly_counts.keys()
+    )
+
+    labels = [
+        getdate(
+            f"{month}-01"
+        ).strftime("%b %Y")
+        for month in month_keys
+    ]
+
+    values = [
+        monthly_counts[month]
+        for month in month_keys
+    ]
+
+    return {
+        "labels": labels,
+        "datasets": [
+            {
+                "name": "Replacement Orders",
+                "values": values,
+            }
+        ],
+    }
+
+
+@frappe.whitelist()
+def get_total_orders_card():
+    data = get_replacement_summary()
+
+    return {
+        "value": data["total"],
+        "fieldtype": "Int",
+    }
+
+
+@frappe.whitelist()
+def get_open_orders_card():
+    data = get_replacement_summary()
+
+    return {
+        "value": data["open"],
+        "fieldtype": "Int",
+    }
+
+
+@frappe.whitelist()
+def get_closed_orders_card():
+    data = get_replacement_summary()
+
+    return {
+        "value": data["closed"],
+        "fieldtype": "Int",
+    }
+
+
+@frappe.whitelist()
+def get_dn_pending_card():
+    data = get_replacement_summary()
+
+    return {
+        "value": data["dn_pending"],
+        "fieldtype": "Int",
+    }
+
+
+@frappe.whitelist()
+def get_pr_pending_card():
+    data = get_replacement_summary()
+
+    return {
+        "value": data["pr_pending"],
+        "fieldtype": "Int",
+    }
+
+
+@frappe.whitelist()
+def get_average_tat_card():
+    data = get_replacement_summary()
+
+    return {
+        "value": data["average_tat"],
+        "fieldtype": "Float",
+    }

@@ -20,6 +20,14 @@ app_license = "mit"
 # 		"has_permission": "battery_claim.api.permission.has_app_permission"
 # 	}
 # ]
+add_to_apps_screen = [
+    {
+        "name": "battery_claim",
+        "logo": "/assets/battery_claim/images/replacement_management_frappe_style(1).svg",
+        "title": "Battery Claim",
+        "route": "/battery_claim",
+    }
+]
 
 # Includes in <head>
 # ------------------
@@ -52,7 +60,6 @@ app_license = "mit"
 # ------------------
 # include app icons in desk
 # app_include_icons = "battery_claim/public/icons.svg"
-
 # Home Pages
 # ----------
 

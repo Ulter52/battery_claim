@@ -13,12 +13,13 @@
  "link_to": "Replacement Desk",
  "link_type": "Workspace Sidebar",
  "logo_url": "/assets/battery_claim/images/replacement_management_frappe_style(1).svg",
- "modified": "2026-08-27 16:01:12.370784",
+ "modified": "2026-08-29 16:27:32.676898",
  "modified_by": "Administrator",
  "name": "Replacement Desk",
  "owner": "Administrator",
  "parent_icon": "",
  "restrict_removal": 0,
  "roles": [],
+ "sidebar": "Replacement Desk",
  "standard": 1
 }

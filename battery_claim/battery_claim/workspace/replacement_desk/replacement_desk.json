@@ -1,0 +1,262 @@
+{
+ "app": "battery_claim",
+ "charts": [
+  {
+   "chart_name": "Replacement by Item",
+   "label": "Top 10 Replaced Item"
+  }
+ ],
+ "content": "[{\"id\":\"DbkY8xr5UC\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\"\\&quot;h4\\&quot;\">Welcome to the Replacement Desk</span>\",\"col\":12}},{\"id\":\"HRK5x_4YtC\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Top 10 Replaced Item\",\"col\":12}},{\"id\":\"YnfDEnF0mY\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Orders\",\"col\":4}},{\"id\":\"dAmU_NDRXj\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Orders\",\"col\":4}},{\"id\":\"gZf-0p0_Ik\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Closed Orders\",\"col\":4}},{\"id\":\"BnoPr69sDI\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Delivery Note Pending\",\"col\":4}},{\"id\":\"Nq2Wm0zrlI\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Purchase Receipt Pending\",\"col\":4}},{\"id\":\"siDrQe1x6F\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Average TAT\",\"col\":4}},{\"id\":\"S_QiD-2AGq\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\"\\&quot;h4\\&quot;\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"tGkpY3ddSr\",\"type\":\"card\",\"data\":{\"card_name\":\"Replacement Masters\",\"col\":4}},{\"id\":\"I7n-Qe1k2J\",\"type\":\"card\",\"data\":{\"card_name\":\"Supports\",\"col\":4}},{\"id\":\"zEBeb70ZW5\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "creation": "2026-08-28 21:36:51.942868",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "squares-exclude",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Replacement Desk",
+ "link_type": "DocType",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Replacement Masters",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Replacement Order",
+   "link_count": 0,
+   "link_to": "Battery Warranty Claim",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Warranty Approval",
+   "link_count": 0,
+   "link_to": "Warranty Approval",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Dispatch Voucher",
+   "link_count": 0,
+   "link_to": "Warranty Claim Batch",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Supports",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Issue",
+   "link_count": 0,
+   "link_to": "Issue",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Warranty Claim",
+   "link_count": 0,
+   "link_to": "Warranty Claim",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Replacement Report",
+   "link_count": 0,
+   "link_to": "Replacement Order Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-08-29 17:10:14.471732",
+ "modified_by": "Administrator",
+ "module": "Battery Claim",
+ "name": "Replacement Desk",
+ "number_cards": [
+  {
+   "label": "Total Orders",
+   "number_card_name": "Total Orders"
+  },
+  {
+   "label": "Open Orders",
+   "number_card_name": "Open Orders"
+  },
+  {
+   "label": "Closed Orders",
+   "number_card_name": "Closed Orders"
+  },
+  {
+   "label": "Average TAT",
+   "number_card_name": "Average TAT"
+  },
+  {
+   "label": "Delivery Note Pending",
+   "number_card_name": "Delivery Note Pending"
+  },
+  {
+   "label": "Purchase Receipt Pending",
+   "number_card_name": "Purchase Receipt Pending"
+  }
+ ],
+ "owner": "Administrator",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 38.0,
+ "shortcuts": [],
+ "sidebar_items": [
+  {
+   "child": 0,
+   "collapsible": 1,
+   "default_workspace": 1,
+   "icon": "house",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Home",
+   "link_to": "Replacement Desk",
+   "link_type": "Workspace",
+   "open_in_new_tab": 1,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "default_workspace": 0,
+   "icon": "layout-dashboard",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Dashboard",
+   "link_to": "Replacement Order",
+   "link_type": "Dashboard",
+   "open_in_new_tab": 1,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "default_workspace": 0,
+   "icon": "replace-all",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Transaction",
+   "link_type": "DocType",
+   "open_in_new_tab": 1,
+   "show_arrow": 0,
+   "type": "Section Break"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "default_workspace": 0,
+   "icon": "replace",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Replacement Order",
+   "link_to": "Battery Warranty Claim",
+   "link_type": "DocType",
+   "open_in_new_tab": 1,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "default_workspace": 0,
+   "icon": "ticket-check",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Warranty Approval",
+   "link_to": "Warranty Approval",
+   "link_type": "DocType",
+   "open_in_new_tab": 1,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "default_workspace": 0,
+   "icon": "send",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Dispatch Voucher",
+   "link_to": "Warranty Claim Batch",
+   "link_type": "DocType",
+   "open_in_new_tab": 1,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "default_workspace": 0,
+   "icon": "sheet",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Reports",
+   "link_type": "DocType",
+   "open_in_new_tab": 1,
+   "show_arrow": 0,
+   "type": "Section Break"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "default_workspace": 0,
+   "icon": "sheet",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Replacement Order Report",
+   "link_to": "Replacement Order Report",
+   "link_type": "Report",
+   "open_in_new_tab": 1,
+   "show_arrow": 0,
+   "type": "Link"
+  }
+ ],
+ "standard": 1,
+ "title": "Replacement Desk",
+ "type": "Workspace"
+}

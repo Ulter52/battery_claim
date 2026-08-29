@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect x="28" y="28" width="456" height="456" rx="72" fill="#F3F7FC"/>
+  <!-- checklist -->
+  <rect x="318" y="128" width="112" height="150" rx="14" fill="#FFFFFF" stroke="#B8C7D9" stroke-width="8"/>
+  <circle cx="344" cy="165" r="7" fill="#5E7187"/>
+  <circle cx="344" cy="203" r="7" fill="#5E7187"/>
+  <circle cx="344" cy="241" r="7" fill="#5E7187"/>
+  <path d="M364 165h43M364 203h43M364 241h43" stroke="#AABACD" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- exchange arrows -->
+  <path d="M103 229C105 139 179 87 270 87h57" fill="none" stroke="#2490EF" stroke-width="24" stroke-linecap="round"/>
+  <path d="m306 58 36 29-36 29" fill="none" stroke="#2490EF" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M409 283c-2 90-76 142-167 142h-57" fill="none" stroke="#2490EF" stroke-width="24" stroke-linecap="round"/>
+  <path d="m206 396-36 29 36 29" fill="none" stroke="#2490EF" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- defective item -->
+  <path d="m103 241 72-36 75 36-72 37z" fill="#8EA1B7"/>
+  <path d="M103 241v82l75 39v-84z" fill="#6F8299"/>
+  <path d="M178 278v84l72-38v-83z" fill="#8093AA"/>
+  <path d="M138 222l40 20 38-19-39-20z" fill="#A9B9CA"/>
+  <path d="m157 286 31 31m0-31-31 31" stroke="#34495E" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- replacement item -->
+  <path d="m219 280 70-35 75 36-72 37z" fill="#4B9CEB"/>
+  <path d="M219 280v82l73 39v-83z" fill="#277CC8"/>
+  <path d="M292 318v83l72-37v-83z" fill="#398CD7"/>
+  <path d="M255 261l37 18 39-19-38-18z" fill="#77B5F2"/>
+  <path d="m308 345 16 16 31-35" fill="none" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

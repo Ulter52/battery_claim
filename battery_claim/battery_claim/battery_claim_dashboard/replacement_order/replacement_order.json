@@ -25,7 +25,7 @@
    "width": "Full"
   },
   {
-   "chart": "Replacement by Item",
+   "chart": "Replacement Process TAT",
    "width": "Half"
   },
   {
@@ -33,7 +33,7 @@
    "width": "Half"
   },
   {
-   "chart": "Replacement Process TAT",
+   "chart": "Replacement by Item",
    "width": "Full"
   }
  ],
@@ -44,7 +44,7 @@
  "idx": 0,
  "is_default": 1,
  "is_standard": 1,
- "modified": "2026-08-24 12:06:44.729802",
+ "modified": "2026-08-27 16:48:52.806239",
  "modified_by": "Administrator",
  "module": "Battery Claim",
  "name": "Replacement Order",
